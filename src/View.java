@@ -139,4 +139,27 @@ public class View extends JFrame {
     public void addNochEinmalListener(ActionListener listener) {
         btnNochEinmal.addActionListener(listener);
     }
+
+    // setters
+    public void setComputerZahl(int zahl) {
+        txtComputerZahl.setText(String.valueOf(zahl));
+    }
+
+    public void setRundenErgebnis(int ergebnis) {
+        if (ergebnis > 0) {
+            lblRundenErgebnis.setText("+" + ergebnis);
+        } else {
+            lblRundenErgebnis.setText(String.valueOf(ergebnis));
+        }
+    }
+
+    public void setGesamtpunkte(int punkte) {
+        lblGesamtpunkte.setText("Gesamtpunkte: " + punkte);
+    }
+
+    public void clearRunde() {
+        txtSpielerZahl.setText("");
+        txtComputerZahl.setText("");
+        lblRundenErgebnis.setText("");
+    }
 }
