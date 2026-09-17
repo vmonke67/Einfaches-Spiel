@@ -29,7 +29,7 @@ public class GewinnModel {
         return rundenErgebnis;
     }
 
-    public void ComputerZahl() {
+    public void berechneComputerZahl() {
         Random rand = new Random();
         computerZahl = rand.nextInt(9) + 1;
     }
