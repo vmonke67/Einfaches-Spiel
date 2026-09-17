@@ -109,4 +109,25 @@ public class View extends JFrame {
 
         setVisible(true);
     }
+
+    // getters
+    public JTextField getTxtSpielerZahl() {
+        return txtSpielerZahl;
+    }
+
+    public JTextField getTxtComputerZahl() {
+        return txtComputerZahl;
+    }
+
+    public JLabel getLblRundenErgebnis() {
+        return lblRundenErgebnis;
+    }
+
+    public JLabel getLblGesamtpunkte() {
+        return lblGesamtpunkte;
+    }
+
+    public JButton getBtnNochEinmal() {
+        return btnNochEinmal;
+    }
 }
