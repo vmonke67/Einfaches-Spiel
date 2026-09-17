@@ -1,11 +1,22 @@
 import javax.swing.*;
 import java.awt.*;
 
+
+/**
+ * Controller
+ *
+ * @author Monke Vladyslav
+ */
 public class Controller {
 
     private final GewinnModel gewinnModel;
     private final View view;
 
+    /**
+     * Erstellt einen neuen Controller und initialisiert
+     * das GewinnModel sowie die View.
+     * Anschließend werden die benötigten Listener hinzugefügt.
+     */
     public Controller() {
         gewinnModel = new GewinnModel();
         view = new View();
@@ -13,21 +24,39 @@ public class Controller {
         addListeners();
     }
 
+    /**
+     * Startet die Anwendung und erstellt einen neuen Controller.
+     *
+     * @param args Kommandozeilenargumente
+     */
     public static void main(String[] args) {
         new Controller();
     }
 
+    /**
+     * Fügt die Listener für die Eingabe des Spielers
+     * und für den Button "Noch einmal!" hinzu.
+     */
     private void addListeners() {
         view.addSpielerZahlListener(e -> spielerZahlEingegeben());
         view.addNochEinmalListener(e -> nochEinmalEingabe());
     }
 
+    /**
+     * Bereitet die View für eine neue Runde vor.
+     * Der Button wird deaktiviert, die Eingabe wieder aktiviert
+     * und die Werte der vorherigen Runde werden gelöscht.
+     */
     private void nochEinmalEingabe() {
         view.getBtnNochEinmal().setEnabled(false);
         view.getTxtSpielerZahl().setEditable(true);
         view.clearRunde();
     }
 
+    /**
+     * Liest die eingegebene Spielerzahl ein und startet eine Runde,
+     * sofern die Eingabe gültig ist.
+     */
     private void spielerZahlEingegeben() {
         int spielerZahl = leseSpielerZahl();
 
@@ -39,6 +68,12 @@ public class Controller {
         aktualisiereView();
     }
 
+    /**
+     * Liest die Zahl aus dem Eingabefeld der View
+     * und überprüft, ob es sich um eine gültige Zahl handelt.
+     *
+     * @return Die eingegebene Zahl oder -1 bei einer ungültigen Eingabe
+     */
     private int leseSpielerZahl() {
         String eingabe = view.getTxtSpielerZahl().getText().trim();
 
@@ -58,12 +93,24 @@ public class Controller {
         }
     }
 
+    /**
+     * Führt eine komplette Spielrunde durch.
+     * Die Spielerzahl wird an das Model übergeben, anschließend
+     * wird eine Computerzahl erzeugt und das Rundenergebnis berechnet.
+     *
+     * @param spielerZahl Die vom Spieler eingegebene Zahl
+     */
     private void spieleRunde(int spielerZahl) {
         gewinnModel.setSpielerZahl(spielerZahl);
         gewinnModel.berechneComputerZahl();
         gewinnModel.berechneRunde();
     }
 
+    /**
+     * Aktualisiert die Anzeige der View anhand des aktuellen
+     * Spielstands und des Ergebnisses der letzten Runde.
+     * Außerdem wird geprüft, ob das Spiel gewonnen oder verloren wurde.
+     */
     private void aktualisiereView() {
         view.setComputerZahl(gewinnModel.getComputerZahl());
 
