@@ -130,4 +130,13 @@ public class View extends JFrame {
     public JButton getBtnNochEinmal() {
         return btnNochEinmal;
     }
+
+    // listeners
+    public void addSpielerZahlListener(ActionListener listener) {
+        txtSpielerZahl.addActionListener(listener);
+    }
+
+    public void addNochEinmalListener(ActionListener listener) {
+        btnNochEinmal.addActionListener(listener);
+    }
 }
