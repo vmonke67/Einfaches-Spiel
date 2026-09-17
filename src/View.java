@@ -153,6 +153,10 @@ public class View extends JFrame {
         }
     }
 
+    public void setRundenErgebnis(String ergebnis) {
+        lblRundenErgebnis.setText(ergebnis);
+    }
+
     public void setGesamtpunkte(int punkte) {
         lblGesamtpunkte.setText("Gesamtpunkte: " + punkte);
     }
