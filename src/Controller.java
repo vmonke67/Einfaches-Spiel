@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 
 public class Controller {
 
@@ -65,6 +66,14 @@ public class Controller {
 
     private void aktualisiereView() {
         view.setComputerZahl(gewinnModel.getComputerZahl());
+
+        if (gewinnModel.getRundenErgebnis() > 0) {
+            view.getLblGesamtpunkte().setForeground(Color.GREEN);
+            view.getLblRundenErgebnis().setForeground(Color.GREEN);
+        } else {
+            view.getLblGesamtpunkte().setForeground(Color.RED);
+            view.getLblRundenErgebnis().setForeground(Color.RED);
+        }
 
         if (gewinnModel.hatGewonnen()) {
             view.setRundenErgebnis("Gewonnen");
