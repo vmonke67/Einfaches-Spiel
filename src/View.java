@@ -161,5 +161,6 @@ public class View extends JFrame {
         txtSpielerZahl.setText("");
         txtComputerZahl.setText("");
         lblRundenErgebnis.setText("");
+        lblGesamtpunkte.setText("");
     }
 }
