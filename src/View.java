@@ -98,6 +98,7 @@ public class View extends JFrame {
         btnNochEinmal = new JButton("Noch einmal!");
         btnNochEinmal.setFont(new Font("Arial", Font.PLAIN, 26));
         btnNochEinmal.setPreferredSize(new Dimension(230, 50));
+        btnNochEinmal.setEnabled(false);
 
         buttonPanel.add(btnNochEinmal);
 
@@ -165,6 +166,5 @@ public class View extends JFrame {
         txtSpielerZahl.setText("");
         txtComputerZahl.setText("");
         lblRundenErgebnis.setText("");
-        lblGesamtpunkte.setText("");
     }
 }

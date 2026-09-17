@@ -18,7 +18,13 @@ public class Controller {
 
     private void addListeners() {
         view.addSpielerZahlListener(e -> spielerZahlEingegeben());
-        view.addNochEinmalListener(e -> view.clearRunde());
+        view.addNochEinmalListener(e -> nochEinmalEingabe());
+    }
+
+    private void nochEinmalEingabe() {
+        view.getBtnNochEinmal().setEnabled(false);
+        view.getTxtSpielerZahl().setEditable(true);
+        view.clearRunde();
     }
 
     private void spielerZahlEingegeben() {
@@ -71,7 +77,8 @@ public class Controller {
             view.setGesamtpunkte(gewinnModel.getGesamtPunkte());
             return;
         }
-
+        view.getTxtSpielerZahl().setEditable(false);
+        view.getBtnNochEinmal().setEnabled(true);
         view.setRundenErgebnis(gewinnModel.getRundenErgebnis());
         view.setGesamtpunkte(gewinnModel.getGesamtPunkte());
     }
