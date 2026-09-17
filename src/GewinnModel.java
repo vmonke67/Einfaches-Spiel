@@ -44,7 +44,7 @@ public class GewinnModel {
             punktenBekommen = -10;
         }
         rundenErgebnis = punktenBekommen;
-        gesamtPunkte = rundenErgebnis;
+        gesamtPunkte = gesamtPunkte + rundenErgebnis;
     }
 
     public boolean hatGewonnen() {
